@@ -8,6 +8,11 @@ public class Projectile : Weapon
     protected float speed = 70.0f;
     protected GameObject impactObject;
 
+    public override void InitSetting()
+    {
+        data.attackPoint = 10.0f;
+    }
+
     private void Start()
     {
         GetComponent<Rigidbody>().AddForce(this.transform.forward * speed);
@@ -25,9 +30,10 @@ public class Projectile : Weapon
         if(collision.gameObject.tag == "Enemy")
         {
             Debug.Log("aaaaaaaaaaaaaaaaaaaaaaa");
-            collision.gameObject.GetComponent<IDamageable>().Damage(10.0f);
+            collision.gameObject.GetComponent<IDamageable>().Damage(data.attackPoint);
             Dissapear();
         }
     }
+
 
 }

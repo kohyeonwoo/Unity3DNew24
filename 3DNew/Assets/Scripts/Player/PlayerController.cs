@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
     public VariableJoystick joystick;
     public float speed;
+    public float health;
 
     public GameObject buffObject;
     public GameObject areaAttackObject;
@@ -92,6 +93,17 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(AttackFirst());
     }
 
+    public void Damage(float Damage)
+    {
+        health -= Damage;
+
+        if(health <= 0)
+        {
+
+        }
+
+    }
+
 
     private IEnumerator AttackFirst()
     {
@@ -111,4 +123,5 @@ public class PlayerController : MonoBehaviour
 
     }
 
+  
 }

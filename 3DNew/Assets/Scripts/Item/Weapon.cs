@@ -13,4 +13,7 @@ public abstract class Weapon : MonoBehaviour
 {
     public WeaponType weaponTypes;
     public Data data;
+
+    public abstract void InitSetting();
+
 }
