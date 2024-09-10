@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
         }
 
         isPause = false;
+
+        GameObject dna = ObjectPoolingManager.Instance.GetPooledObject();
+    
     }
 
     public void ActiveEvolutionPannel()
