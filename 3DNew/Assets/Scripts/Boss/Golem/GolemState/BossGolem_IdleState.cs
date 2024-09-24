@@ -9,7 +9,7 @@ public class BossGolem_IdleState : StateMachineBehaviour
 
     private Transform player;
 
-    private float attack1Distance = 4.0f;
+    private float chaseRange = 4.0f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -31,9 +31,9 @@ public class BossGolem_IdleState : StateMachineBehaviour
 
         float distance1 = Vector3.Distance(player.position, animator.transform.position);
 
-        if(distance1 < attack1Distance)
+        if(distance1 < chaseRange)
         {
-            animator.SetBool("attack1", true);
+            animator.SetBool("walk", true);
         }
 
     }

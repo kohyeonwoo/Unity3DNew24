@@ -17,7 +17,7 @@ public class BossGolem_ChaseState : StateMachineBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        agent.speed = 1.25f;
+        agent.speed = 3.5f;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -27,9 +27,9 @@ public class BossGolem_ChaseState : StateMachineBehaviour
 
         float distance = Vector3.Distance(player.position, animator.transform.position);
 
-        if(distance > 25.0f)
+        if(distance > 7.0f)
         {
-            animator.SetBool("isChasing", false);
+            animator.SetBool("walk", false);
         }
 
         if(distance < 5.5f)
