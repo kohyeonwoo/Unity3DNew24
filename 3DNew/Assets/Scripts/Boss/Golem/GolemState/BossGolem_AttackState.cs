@@ -20,10 +20,10 @@ public class BossGolem_AttackState : StateMachineBehaviour
 
         float distance = Vector3.Distance(player.position, animator.transform.position);
 
-        if(distance > 4.0f)
-        {
-            animator.SetBool("attack1", false);
-        }
+        //if(distance > 4.0f)
+        //{
+        //    animator.SetBool("attack1", false);
+        //}
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

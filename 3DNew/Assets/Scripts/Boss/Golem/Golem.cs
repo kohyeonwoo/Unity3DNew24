@@ -7,6 +7,10 @@ public class Golem : MonoBehaviour, IDamageable
 
     private Animator animator;
 
+    private void Start()
+    {
+        animator = this.gameObject.GetComponent<Animator>();
+    }
 
     public void EndAttack1()
     {
