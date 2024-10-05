@@ -27,12 +27,12 @@ public class BossGolem_ChaseState : StateMachineBehaviour
 
         float distance = Vector3.Distance(player.position, animator.transform.position);
 
-        if(distance > 15.0f)
+        if(distance > 25.0f)
         {
             animator.SetBool("walk", false);
         }
 
-        if(distance < 2.5f)
+        if(distance < 1.25f)
         {
             animator.SetBool("attack1", true);
         }
