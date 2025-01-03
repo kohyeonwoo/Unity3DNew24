@@ -48,49 +48,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void LateUpdate()
     {
-        animator.SetFloat("moveFloat", moveVector.sqrMagnitude);
-    }
-
-    public void ActivePowerUp()
-    {
-        animator.SetBool("bPowerUp", true);
-        buffObject.SetActive(true);
-    }
-
-    public void DeActivePowerUp()
-    {
-        animator.SetBool("bPowerUp", false);
-        buffObject.SetActive(false);
-    }
-
-    public void ActiveTurnAttack()
-    {
-       // animator.SetBool("bTurnAttack", true);
-        Fire();
-    }
-
-    public void DeActiveTurnAttack()
-    {
-       // animator.SetBool("bTurnAttack", false);
-    }
-
-    public void ActiveAreaAttack()
-    {
-        areaAttackObject.SetActive(true);
-        Invoke("DeActiveAreaAttack", 4.95f);
-    }
-
-    public void DeActiveAreaAttack()
-    {
-        areaAttackObject.SetActive(false);
-    }
-
-
-    public void Fire()
-    {
-        GameObject bulletObject = (GameObject)Instantiate(projectileObject, muzzleObject.position, muzzleObject.rotation);
-        Projectile projectile = bulletObject.GetComponent<Projectile>();
-        StartCoroutine(AttackFirst());
+       animator.SetFloat("moveFloat", moveVector.sqrMagnitude);
     }
 
     public void Damage(float Damage)
@@ -99,29 +57,94 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         if(health <= 0)
         {
-
+            Dead();
         }
 
     }
 
-
-    private IEnumerator AttackFirst()
+    public void HumanTypeAttack()
     {
-        float runningTime = attack1Duration;
+        animator.SetTrigger("Attack");
+        Debug.Log("플레이어의 인간 상태일 때의 공격입니다!");
+    }
 
-        t.gameObject.SetActive(true);
-        t.orthographicSize = 0.1f;
+    public void ChangeForm()
+    {
+        this.gameObject.SetActive(false);
+        Debug.Log("플레이어의 현재 상태가 변화합니다!");
+    }
 
-        while(runningTime > 0.0f)
-        {
-            runningTime -= Time.deltaTime;
-            t.orthographicSize += 3.2f * Time.deltaTime;
-            yield return null;
-        }
-
-        t.gameObject.SetActive(false);
+    public void ReturnToOriginForm()
+    {
 
     }
 
-  
+    public void Dead()
+    {
+
+    }
+
+
+    //public void ActivePowerUp()
+    //{
+    //    animator.SetBool("bPowerUp", true);
+    //    buffObject.SetActive(true);
+    //}
+
+    //public void DeActivePowerUp()
+    //{
+    //    animator.SetBool("bPowerUp", false);
+    //    buffObject.SetActive(false);
+    //}
+
+    //public void ActiveTurnAttack()
+    //{
+    //   // animator.SetBool("bTurnAttack", true);
+    //    Fire();
+    //}
+
+    //public void DeActiveTurnAttack()
+    //{
+    //   // animator.SetBool("bTurnAttack", false);
+    //}
+
+    //public void ActiveAreaAttack()
+    //{
+    //    areaAttackObject.SetActive(true);
+    //    Invoke("DeActiveAreaAttack", 4.95f);
+    //}
+
+    //public void DeActiveAreaAttack()
+    //{
+    //    areaAttackObject.SetActive(false);
+    //}
+
+
+    //public void Fire()
+    //{
+    //    GameObject bulletObject = (GameObject)Instantiate(projectileObject, muzzleObject.position, muzzleObject.rotation);
+    //    Projectile projectile = bulletObject.GetComponent<Projectile>();
+    //    StartCoroutine(AttackFirst());
+    //}
+
+
+    //private IEnumerator AttackFirst()
+    //{
+    //    float runningTime = attack1Duration;
+
+    //    t.gameObject.SetActive(true);
+    //    t.orthographicSize = 0.1f;
+
+    //    while(runningTime > 0.0f)
+    //    {
+    //        runningTime -= Time.deltaTime;
+    //        t.orthographicSize += 3.2f * Time.deltaTime;
+    //        yield return null;
+    //    }
+
+    //    t.gameObject.SetActive(false);
+
+    //}
+
+
 }
