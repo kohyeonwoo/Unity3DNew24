@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     public Transform muzzleObject;
     public GameObject projectileObject;
 
+    public GameObject num1;
+
     private Rigidbody rigidBody;
     private Animator animator;
     private Vector3 moveVector;
@@ -71,6 +73,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void ChangeForm()
     {
         this.gameObject.SetActive(false);
+        num1.gameObject.SetActive(true);
         Debug.Log("플레이어의 현재 상태가 변화합니다!");
     }
 
