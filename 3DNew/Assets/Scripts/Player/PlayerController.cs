@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour, IDamageable
     public Transform muzzleObject;
     public GameObject projectileObject;
 
+    public GameObject humanAttackCollision;
+
     public GameObject num1;
 
     private Rigidbody rigidBody;
+
+    [SerializeField]
     private Animator animator;
     private Vector3 moveVector;
 
@@ -68,6 +72,16 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         animator.SetTrigger("Attack");
         Debug.Log("플레이어의 인간 상태일 때의 공격입니다!");
+    }
+
+    public void HumanTypeAttackCollisionActive()
+    {
+        humanAttackCollision.SetActive(true);
+    }
+
+    public void HumanTypeAttackCollisionDeActive()
+    {
+        humanAttackCollision.SetActive(false);
     }
 
     public void ChangeForm()
