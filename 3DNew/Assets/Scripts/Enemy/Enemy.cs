@@ -6,7 +6,16 @@ public class Enemy : MonoBehaviour, IDamageable
 {
 
     public float health = 50.0f;
+    
     public Animator animator;
+    public Rigidbody rigid;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody>();
+    }
+
     public void Damage(float Damage)
     {
 
@@ -14,14 +23,14 @@ public class Enemy : MonoBehaviour, IDamageable
 
         if(health <= 0)
         {
-            //Àû Á×À½ ¾Ö´Ï¸ŞÀÌ¼Ç Ãâ·Â 
+            //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ 
             animator.SetTrigger("Die");
             GetComponent<Collider>().enabled = false;
             Invoke("Dissapear", 6.0f);
         }
         else
         {
-            //Àû ÇÇ°İ ¾Ö´Ï¸ŞÀÌ¼Ç Ãâ·Â
+            //ï¿½ï¿½ ï¿½Ç°ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½
             animator.SetTrigger("Damage");
         }
 
@@ -30,6 +39,14 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Dissapear()
     {
         Destroy(gameObject);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "AttackPart")
+        {
+            Debug.Log("í”Œë ˆì´ì–´ì˜ ê³µê²©ì— ë§ì•˜ìŠµë‹ˆë‹¤.");
+        }
     }
 
 }

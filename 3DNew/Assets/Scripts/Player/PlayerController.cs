@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     }
 
+    //플레이어 ----------> 사람 형태 관련 내용 
+
     public void HumanTypeAttack()
     {
         animator.SetTrigger("Attack");
@@ -84,6 +86,69 @@ public class PlayerController : MonoBehaviour, IDamageable
         humanAttackCollision.SetActive(false);
     }
 
+    //////////////////////////////////////////////////////
+
+
+    /////// 말벌 형태일 때의 내용///////////////////////////
+    public void StingTypeAttack()
+    {
+        animator.SetTrigger("Attack");
+        Debug.Log("플레이어의 말벌 상태일 때의 공격입니다!");   
+    }
+
+    public void StingTypeAttackCollisionActive()
+    {
+
+    }
+
+    public void StingTypeAttackCollisionDeActive()
+    {
+
+    }
+
+    //////////////////////////////////////////////////////
+
+    /////// 곰 형태일 때의 내용///////////////////////////
+    public void BearTypeAttack()
+    {
+        animator.SetTrigger("Attack");
+        Debug.Log("플레이어의 곰 상태일 때의 공격입니다!");
+    }
+
+    public void BearTypeAttackCollisionActive()
+    {
+
+    }
+
+    public void BearTypeAttackCollisionDeActive()
+    {
+
+    }
+
+    //////////////////////////////////////////////////////
+
+    /////// 고래 형태일 때의 내용///////////////////////////
+    public void WhaleTypeAttack()
+    {
+        animator.SetTrigger("Attack");
+        Debug.Log("플레이어의 고래 상태일 때의 공격입니다!");
+    }
+
+    public void WhaleTypeAttackCollisionActive()
+    {
+
+    }
+
+    public void WhaleTypeAttackCollisionDeActive()
+    {
+
+    }
+
+    //////////////////////////////////////////////////////
+
+
+    /////// 형태 변환 관련 내용 ////////////////////////////
+
     public void ChangeForm()
     {
         this.gameObject.SetActive(false);
@@ -93,8 +158,10 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void ReturnToOriginForm()
     {
-
+        Debug.Log("플레이어의 원 상태로 변화합니다!");
     }
+
+    ////////////////////////////////////////////////////
 
     public void Dead()
     {
