@@ -8,19 +8,16 @@ public class PlayerController : MonoBehaviour, IDamageable
     public float speed;
     public float health;
 
-    public GameObject buffObject;
-    public GameObject areaAttackObject;
-    public Transform muzzleObject;
-    public GameObject projectileObject;
-
     public GameObject humanAttackCollision;
+    public List<GameObject> stingAttackCollision = new List<GameObject>();
+    public List<GameObject> bearAttackCollision = new List<GameObject>();
+    public List<GameObject> whaleAttackCollision = new List<GameObject>();
 
-    public GameObject num1;
-
-    private Rigidbody rigidBody;
+    public List<GameObject> changeList = new List<GameObject>();
 
     [SerializeField]
     private Animator animator;
+    private Rigidbody rigidBody;
     private Vector3 moveVector;
 
     public float attack1Duration = 5.0f;
@@ -35,6 +32,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
+
         float x = joystick.Horizontal;
         float z = joystick.Vertical;
 
@@ -98,12 +96,32 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void StingTypeAttackCollisionActive()
     {
-
+        stingAttackCollision[2].SetActive(true);
     }
 
     public void StingTypeAttackCollisionDeActive()
     {
+        stingAttackCollision[2].SetActive(false);
+    }
 
+    public void StingTypeAttack2CollisionActive()
+    {
+        stingAttackCollision[2].SetActive(true);
+    }
+
+    public void StingTypeAttack2CollisionDeActive()
+    {
+        stingAttackCollision[2].SetActive(false);
+    }
+
+    public void StingTypeAttack3CollisionActive()
+    {
+        stingAttackCollision[2].SetActive(true);
+    }
+
+    public void StingTypeAttack3CollisionDeActive()
+    {
+        stingAttackCollision[2].SetActive(false);
     }
 
     //////////////////////////////////////////////////////
@@ -149,18 +167,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     /////// 형태 변환 관련 내용 ////////////////////////////
 
-    public void ChangeForm()
-    {
-        this.gameObject.SetActive(false);
-        num1.gameObject.SetActive(true);
-        Debug.Log("플레이어의 현재 상태가 변화합니다!");
-    }
-
-    public void ReturnToOriginForm()
-    {
-        Debug.Log("플레이어의 원 상태로 변화합니다!");
-    }
-
+  
     ////////////////////////////////////////////////////
 
     public void Dead()

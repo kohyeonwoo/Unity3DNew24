@@ -628,7 +628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &200170413977661407
 Transform:
   m_ObjectHideFlags: 0
@@ -637,7 +637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3002742960273672878}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -688,6 +688,11 @@ MonoBehaviour:
   muzzleObject: {fileID: 0}
   projectileObject: {fileID: 0}
   humanAttackCollision: {fileID: 0}
+  stingAttackCollision: []
+  bearAttackCollision: []
+  whaleAttackCollision:
+  - {fileID: 3792236782087683627}
+  - {fileID: 6349649114055862690}
   num1: {fileID: 0}
   animator: {fileID: 0}
   attack1Duration: 5

@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 7517487095140362434}
   - component: {fileID: 4688417159953872631}
   m_Layer: 0
-  m_Name: AttackPart_RightFoot
+  m_Name: AttackPart_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2224,6 +2224,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3594317017823624027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8729560140141223633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 241590944913695270}
+  - component: {fileID: 6988518125763567277}
+  m_Layer: 0
+  m_Name: AreaAttackCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &241590944913695270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729560140141223633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.505, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6579096668413751370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6988518125763567277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729560140141223633}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 0.08, z: 4}
+  m_Center: {x: 0, y: -0.39, z: 0}
 --- !u!1 &8772222772941331254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,7 +2360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6579096668413751370
 Transform:
   m_ObjectHideFlags: 0
@@ -2323,6 +2376,7 @@ Transform:
   m_Children:
   - {fileID: 308036102782768064}
   - {fileID: 766821004015001608}
+  - {fileID: 241590944913695270}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8637053028302148712
@@ -2366,6 +2420,13 @@ MonoBehaviour:
   muzzleObject: {fileID: 0}
   projectileObject: {fileID: 0}
   humanAttackCollision: {fileID: 0}
+  stingAttackCollision: []
+  bearAttackCollision:
+  - {fileID: 7102440935435959886}
+  - {fileID: 2155863526947256725}
+  - {fileID: 3962394246573808286}
+  - {fileID: 8729560140141223633}
+  whaleAttackCollision: []
   num1: {fileID: 0}
   animator: {fileID: 0}
   attack1Duration: 5
