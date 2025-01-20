@@ -72,11 +72,13 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         animator.SetTrigger("Attack");
         Debug.Log("플레이어의 인간 상태일 때의 공격입니다!");
+        
     }
 
     public void HumanTypeAttackCollisionActive()
     {
         humanAttackCollision.SetActive(true);
+        AudioManager.Instance.PlaySFX("HumanTypeAttackSound1");
     }
 
     public void HumanTypeAttackCollisionDeActive()

@@ -45,6 +45,13 @@ public class Enemy_Zombie : MonoBehaviour
     public void Dead()
     {
         ChangeRagdoll();
+
+        Invoke("Dissapear", 2.0f);
+    }
+
+    public void Dissapear()
+    {
+        deadBody.SetActive(false);
     }
 
 
@@ -53,6 +60,7 @@ public class Enemy_Zombie : MonoBehaviour
         if(other.gameObject.tag == "AttackPart")
         {
             Dead();
+            AudioManager.Instance.PlaySFX("HitSound1");
         }
     }
 
