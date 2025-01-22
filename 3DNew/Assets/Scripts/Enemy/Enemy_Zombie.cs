@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy_Zombie : MonoBehaviour
 {
+
     public GameObject deadBody;
     public Rigidbody spine;
-
 
     private Rigidbody rigid;
     private Animator anim;
@@ -53,7 +53,6 @@ public class Enemy_Zombie : MonoBehaviour
     {
         deadBody.SetActive(false);
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
