@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class StartMenuSceneManager : MonoBehaviour
@@ -20,6 +21,11 @@ public class StartMenuSceneManager : MonoBehaviour
     public void OpenStartScene()
     {
         bOpen = true;
+    }
+
+    public void LoadInGameScene()
+    {
+        SceneManager.LoadScene("InGameScene");
     }
 
 }

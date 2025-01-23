@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 {
     public VariableJoystick joystick;
     public float speed;
+
+    public float maxHealth;
     public float health;
 
     public GameObject humanAttackCollision;
@@ -28,6 +30,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+
+        maxHealth = 100.0f;
+        health = maxHealth;
+
     }
 
     private void FixedUpdate()
@@ -59,7 +65,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         health -= Damage;
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Dead();
         }
@@ -84,6 +90,11 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void HumanTypeAttackCollisionDeActive()
     {
         humanAttackCollision.SetActive(false);
+    }
+
+    public void HumanSingleFootStepSound()
+    {
+        AudioManager.Instance.PlaySFX("FootStepSound_Grass");
     }
 
     //////////////////////////////////////////////////////
