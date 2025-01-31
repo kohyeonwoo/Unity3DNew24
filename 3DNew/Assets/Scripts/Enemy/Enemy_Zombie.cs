@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy_Zombie : MonoBehaviour
 {
 
+    public GameObject parent;
     public GameObject deadBody;
     public Rigidbody spine;
 
@@ -17,7 +18,12 @@ public class Enemy_Zombie : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-   public void ChangeRagdoll()
+    private void Update()
+    {
+        deadBody.transform.position = this.transform.position;
+    }
+
+    public void ChangeRagdoll()
     {
         CopyCharacterTransformToRagdoll(this.transform, deadBody.transform);
 
@@ -25,7 +31,7 @@ public class Enemy_Zombie : MonoBehaviour
         deadBody.SetActive(true);
 
         //spine.AddForce(new Vector3(0.0f, 0.0f, -300.0f), ForceMode.Impulse);
-   }
+    }
 
     private void CopyCharacterTransformToRagdoll(Transform origin, Transform ragdoll)
     {
@@ -52,6 +58,7 @@ public class Enemy_Zombie : MonoBehaviour
     public void Dissapear()
     {
         deadBody.SetActive(false);
+       // parent.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)

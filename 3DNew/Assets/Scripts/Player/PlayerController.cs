@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamageable
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public float maxHealth;
     public float health;
+
+    public Slider healthBar;
 
     public GameObject humanAttackCollision;
     public List<GameObject> stingAttackCollision = new List<GameObject>();
@@ -34,6 +37,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         maxHealth = 100.0f;
         health = maxHealth;
 
+        healthBar.value = (float)health / (float)maxHealth;
+
     }
 
     private void FixedUpdate()
@@ -54,6 +59,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         Quaternion moveQuat = Quaternion.Slerp(rigidBody.rotation, dirQuat, 0.3f);
         rigidBody.MoveRotation(moveQuat);
 
+        HandleHp();
+
     }
 
     private void LateUpdate()
@@ -61,9 +68,16 @@ public class PlayerController : MonoBehaviour, IDamageable
        animator.SetFloat("moveFloat", moveVector.sqrMagnitude);
     }
 
+    private void HandleHp()
+    {
+        healthBar.value = (float)health / (float)maxHealth;
+    }
+
     public void Damage(float Damage)
     {
         health -= Damage;
+
+        HandleHp();
 
         if (health <= 0)
         {
@@ -180,6 +194,11 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     /////// 형태 변환 관련 내용 ////////////////////////////
 
+    public void ChangeForm()
+    {
+        changeList[0].SetActive(false);
+        changeList[1].SetActive(true);
+    }
   
     ////////////////////////////////////////////////////
 
