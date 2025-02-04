@@ -20,10 +20,10 @@ public class Enemy : MonoBehaviour, IDamageable
     {
 
         health -= Damage;
+        Debug.Log("한대 맞았음!");
 
         if(health <= 0)
         {
-            //�� ���� �ִϸ��̼� ��� 
             animator.SetTrigger("Die");
             GetComponent<Collider>().enabled = false;
             Invoke("Dissapear", 6.0f);

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 {
     public VariableJoystick joystick;
     public float speed;
+    public float bulletSpeed;
 
     public float maxHealth;
     public float health;
@@ -14,14 +15,12 @@ public class PlayerController : MonoBehaviour, IDamageable
     public Slider healthBar;
 
     public GameObject humanAttackCollision;
-    public List<GameObject> stingAttackCollision = new List<GameObject>();
-    public List<GameObject> bearAttackCollision = new List<GameObject>();
-    public List<GameObject> whaleAttackCollision = new List<GameObject>();
-
-    public List<GameObject> changeList = new List<GameObject>();
+    public GameObject bulletPrefab;
+    public GameObject muzzleLocation;
 
     [SerializeField]
     private Animator animator;
+    [SerializeField]
     private Rigidbody rigidBody;
     private Vector3 moveVector;
 
@@ -36,6 +35,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         maxHealth = 100.0f;
         health = maxHealth;
+
+        bulletSpeed = 5.0f;
 
         healthBar.value = (float)health / (float)maxHealth;
 
@@ -86,8 +87,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     }
 
-    //플레이어 ----------> 사람 형태 관련 내용 
-
     public void HumanTypeAttack()
     {
         animator.SetTrigger("Attack");
@@ -99,6 +98,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         humanAttackCollision.SetActive(true);
         AudioManager.Instance.PlaySFX("HumanTypeAttackSound1");
+
+        GameObject bullet = Instantiate(bulletPrefab, muzzleLocation.transform.position, muzzleLocation.transform.rotation);
+        //bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
     }
 
     public void HumanTypeAttackCollisionDeActive()
@@ -113,161 +115,11 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     //////////////////////////////////////////////////////
 
-
-    /////// 말벌 형태일 때의 내용///////////////////////////
-    public void StingTypeAttack()
-    {
-        animator.SetTrigger("Attack");
-        Debug.Log("플레이어의 말벌 상태일 때의 공격입니다!");   
-    }
-
-    public void StingTypeAttackCollisionActive()
-    {
-        stingAttackCollision[2].SetActive(true);
-    }
-
-    public void StingTypeAttackCollisionDeActive()
-    {
-        stingAttackCollision[2].SetActive(false);
-    }
-
-    public void StingTypeAttack2CollisionActive()
-    {
-        stingAttackCollision[2].SetActive(true);
-    }
-
-    public void StingTypeAttack2CollisionDeActive()
-    {
-        stingAttackCollision[2].SetActive(false);
-    }
-
-    public void StingTypeAttack3CollisionActive()
-    {
-        stingAttackCollision[2].SetActive(true);
-    }
-
-    public void StingTypeAttack3CollisionDeActive()
-    {
-        stingAttackCollision[2].SetActive(false);
-    }
-
-    //////////////////////////////////////////////////////
-
-    /////// 곰 형태일 때의 내용///////////////////////////
-    public void BearTypeAttack()
-    {
-        animator.SetTrigger("Attack");
-        Debug.Log("플레이어의 곰 상태일 때의 공격입니다!");
-    }
-
-    public void BearTypeAttackCollisionActive()
-    {
-
-    }
-
-    public void BearTypeAttackCollisionDeActive()
-    {
-
-    }
-
-    //////////////////////////////////////////////////////
-
-    /////// 고래 형태일 때의 내용///////////////////////////
-    public void WhaleTypeAttack()
-    {
-        animator.SetTrigger("Attack");
-        Debug.Log("플레이어의 고래 상태일 때의 공격입니다!");
-    }
-
-    public void WhaleTypeAttackCollisionActive()
-    {
-
-    }
-
-    public void WhaleTypeAttackCollisionDeActive()
-    {
-
-    }
-
-    //////////////////////////////////////////////////////
-
-
-    /////// 형태 변환 관련 내용 ////////////////////////////
-
-    public void ChangeForm()
-    {
-        changeList[0].SetActive(false);
-        changeList[1].SetActive(true);
-    }
-  
-    ////////////////////////////////////////////////////
-
     public void Dead()
-    {
-
+    { 
+    
     }
 
-
-    //public void ActivePowerUp()
-    //{
-    //    animator.SetBool("bPowerUp", true);
-    //    buffObject.SetActive(true);
-    //}
-
-    //public void DeActivePowerUp()
-    //{
-    //    animator.SetBool("bPowerUp", false);
-    //    buffObject.SetActive(false);
-    //}
-
-    //public void ActiveTurnAttack()
-    //{
-    //   // animator.SetBool("bTurnAttack", true);
-    //    Fire();
-    //}
-
-    //public void DeActiveTurnAttack()
-    //{
-    //   // animator.SetBool("bTurnAttack", false);
-    //}
-
-    //public void ActiveAreaAttack()
-    //{
-    //    areaAttackObject.SetActive(true);
-    //    Invoke("DeActiveAreaAttack", 4.95f);
-    //}
-
-    //public void DeActiveAreaAttack()
-    //{
-    //    areaAttackObject.SetActive(false);
-    //}
-
-
-    //public void Fire()
-    //{
-    //    GameObject bulletObject = (GameObject)Instantiate(projectileObject, muzzleObject.position, muzzleObject.rotation);
-    //    Projectile projectile = bulletObject.GetComponent<Projectile>();
-    //    StartCoroutine(AttackFirst());
-    //}
-
-
-    //private IEnumerator AttackFirst()
-    //{
-    //    float runningTime = attack1Duration;
-
-    //    t.gameObject.SetActive(true);
-    //    t.orthographicSize = 0.1f;
-
-    //    while(runningTime > 0.0f)
-    //    {
-    //        runningTime -= Time.deltaTime;
-    //        t.orthographicSize += 3.2f * Time.deltaTime;
-    //        yield return null;
-    //    }
-
-    //    t.gameObject.SetActive(false);
-
-    //}
 
 
 }

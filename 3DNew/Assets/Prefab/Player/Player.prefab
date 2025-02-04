@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4605467036722608160}
   m_Layer: 0
   m_Name: AttackPart
-  m_TagString: Untagged
+  m_TagString: AttackPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,12 +47,43 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.05, z: 0.25}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5881215013774310610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2415581065767604581}
+  m_Layer: 0
+  m_Name: MuzzleLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2415581065767604581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5881215013774310610}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.000000042229154, z: 0.00000008421136, w: 1}
+  m_LocalPosition: {x: 0.091, y: 1.219, z: 0.984}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3445873937638258688}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2907229052971065323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79,11 +110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -91,15 +122,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -119,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
       propertyPath: m_TagString
@@ -132,6 +163,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 2415581065767604581}
     - targetCorrespondingSourceObject: {fileID: 3850059830293975675, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1364508423178908246}
@@ -204,8 +238,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!114 &3585770977817072448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,14 +253,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 0}
-  speed: 3
+  speed: 7
+  maxHealth: 0
   health: 0
-  buffObject: {fileID: 0}
-  areaAttackObject: {fileID: 0}
-  muzzleObject: {fileID: 0}
-  projectileObject: {fileID: 0}
+  healthBar: {fileID: 0}
   humanAttackCollision: {fileID: 705040653764955518}
-  num1: {fileID: 0}
+  bulletPrefab: {fileID: 3722700979060221418, guid: 3cd24b104421b9b40a7857bc6e833f07, type: 3}
+  muzzleLocation: {fileID: 0}
   animator: {fileID: 0}
+  rigidBody: {fileID: 0}
   attack1Duration: 5
   t: {fileID: 0}
+--- !u!4 &3445873937638258688 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0f07f937103f9fd49ab39adff0b97ddb, type: 3}
+  m_PrefabInstance: {fileID: 2907229052971065323}
+  m_PrefabAsset: {fileID: 0}

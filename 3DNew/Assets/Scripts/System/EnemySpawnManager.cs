@@ -37,6 +37,8 @@ public class EnemySpawnManager : MonoBehaviour
     private void Update()
     {
  
+        
+
         if (countDown <= 0.0f)
         {
             StartCoroutine(SpawnOrigin());
