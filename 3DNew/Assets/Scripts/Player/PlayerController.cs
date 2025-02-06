@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
+
+    private List<GameObject> bulletPoolObject = new List<GameObject>();
+
+    [SerializeField]
+    private int amountToPool = 10;
+
     public VariableJoystick joystick;
     public float speed;
     public float bulletSpeed;
@@ -25,7 +31,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Vector3 moveVector;
 
     public float attack1Duration = 5.0f;
-    public Projector t;
+
 
 
     private void Awake()
@@ -39,6 +45,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         bulletSpeed = 5.0f;
 
         healthBar.value = (float)health / (float)maxHealth;
+
+        CreateBulletPool();
 
     }
 
@@ -87,6 +95,44 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     }
 
+    public void CreateBulletPool()
+    {
+        for (int i = 0; i < amountToPool; i++)
+        {
+            GameObject obj = Instantiate(bulletPrefab);
+            obj.SetActive(false);
+            bulletPoolObject.Add(obj);
+        }
+    }
+
+    public GameObject GetBulletPoolObject()
+    {
+       for (int i = 0; i < bulletPoolObject.Count; i++)
+       {
+            if (!bulletPoolObject[i].activeInHierarchy)
+            {
+                return bulletPoolObject[i];
+            }
+       }
+
+        return null;
+    }
+
+    private void SpawnBulletMode()
+    {
+
+        GameObject objects = GetBulletPoolObject();
+
+        if (objects != null)
+        {
+            objects.transform.position = muzzleLocation.transform.position;
+            objects.transform.rotation = muzzleLocation.transform.rotation;
+            objects.SetActive(true);
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////
+
     public void HumanTypeAttack()
     {
         animator.SetTrigger("Attack");
@@ -98,8 +144,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         humanAttackCollision.SetActive(true);
         AudioManager.Instance.PlaySFX("HumanTypeAttackSound1");
-
-        GameObject bullet = Instantiate(bulletPrefab, muzzleLocation.transform.position, muzzleLocation.transform.rotation);
+        SpawnBulletMode();
+        //GameObject bullet = Instantiate(bulletPrefab, muzzleLocation.transform.position, muzzleLocation.transform.rotation);
         //bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
     }
 

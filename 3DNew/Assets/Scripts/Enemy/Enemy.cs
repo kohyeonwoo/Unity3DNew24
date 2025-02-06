@@ -5,7 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IDamageable
 {
 
-    public float health = 50.0f;
+    public GameObject attackCollision;
+
+    public float health = 10.0f;
     
     public Animator animator;
     public Rigidbody rigid;
@@ -14,6 +16,16 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
+    }
+
+    public void ActiveAttackCollision()
+    {
+        attackCollision.SetActive(true);
+    }
+
+    public void DeActiveAttackCollision()
+    {
+        attackCollision.SetActive(false);
     }
 
     public void Damage(float Damage)
@@ -38,7 +50,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void Dissapear()
     {
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
+        GetComponent<Collider>().enabled = true;
     }
 
     public void OnTriggerEnter(Collider other)

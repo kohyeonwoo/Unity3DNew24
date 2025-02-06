@@ -9,7 +9,6 @@ public class DNA : Item
         if (collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            GameManager.Instance.ActiveEvolutionPannel();
         }
     }
 }

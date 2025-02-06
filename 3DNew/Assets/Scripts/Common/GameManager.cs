@@ -19,15 +19,11 @@ public class GameManager : MonoBehaviour
 
         isPause = false;
 
-        GameObject dna = ObjectPoolingManager.Instance.GetPooledObject();
-    
     }
 
-    public void ActiveEvolutionPannel()
+    public void Pause()
     {
-        evolutionPannel.SetActive(true);
-        
-        if(isPause == false)
+        if (isPause == false)
         {
             Time.timeScale = 0;
             isPause = true;
@@ -35,10 +31,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DeActiveEvolutionPannel()
+    public void DePause()
     {
-        evolutionPannel.SetActive(false);
-
         if (isPause == true)
         {
             Time.timeScale = 1;
@@ -47,6 +41,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-
+  
 }

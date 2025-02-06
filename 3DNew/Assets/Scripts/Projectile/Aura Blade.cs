@@ -7,12 +7,22 @@ public class AuraBlade : Bullet
     private void Start()
     {
         attack = 10.0f;
-        speed = 1.0f;
+        speed = 1.0f;    
+    }
+
+    private void OnEnable()
+    {
+        Invoke("Dissapear", 1.0f);
     }
 
     private void Update()
     {
-        transform.Translate(Vector3.forward * 1.0f);
+        transform.Translate(Vector3.forward * 1.0f);     
+    }
+
+    private void Dissapear()
+    {
+         gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
