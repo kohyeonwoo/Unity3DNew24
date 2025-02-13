@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField]
     private int amountToPool = 10;
 
-    public VariableJoystick joystick;
     public float speed;
     public float bulletSpeed;
 
@@ -50,28 +49,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     }
 
-    private void FixedUpdate()
-    {
-
-        float x = joystick.Horizontal;
-        float z = joystick.Vertical;
-
-        moveVector = new Vector3(x, 0, z) * speed * Time.fixedDeltaTime;
-        rigidBody.MovePosition(rigidBody.position + moveVector);
-
-        if(moveVector.sqrMagnitude == 0)
-        {
-            return;
-        }
-
-        Quaternion dirQuat = Quaternion.LookRotation(moveVector);
-        Quaternion moveQuat = Quaternion.Slerp(rigidBody.rotation, dirQuat, 0.3f);
-        rigidBody.MoveRotation(moveQuat);
-
-        HandleHp();
-
-    }
-
+  
     private void LateUpdate()
     {
        animator.SetFloat("moveFloat", moveVector.sqrMagnitude);
