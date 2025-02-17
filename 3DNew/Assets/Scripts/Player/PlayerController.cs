@@ -5,145 +5,73 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
-
-    private List<GameObject> bulletPoolObject = new List<GameObject>();
-
-    [SerializeField]
-    private int amountToPool = 10;
-
-    public float speed;
-    public float bulletSpeed;
-
-    public float maxHealth;
-    public float health;
-
-    public Slider healthBar;
-
-    public GameObject humanAttackCollision;
-    public GameObject bulletPrefab;
-    public GameObject muzzleLocation;
-
-    [SerializeField]
+ 
     private Animator animator;
-    [SerializeField]
-    private Rigidbody rigidBody;
-    private Vector3 moveVector;
+    private Rigidbody rigid;
 
-    public float attack1Duration = 5.0f;
+    private float maxHealth;
+    private float health;
 
+    public float moveSpeed;
 
+    private float horizontal;
+    private float vertical;
+    private bool moveInput;
+
+    Vector3 v;
+    Vector3 h;
+    Vector3 movement;
+   
 
     private void Awake()
     {
-        rigidBody = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        maxHealth = 50.0f;
 
-        maxHealth = 100.0f;
         health = maxHealth;
 
-        bulletSpeed = 5.0f;
+        rigid = GetComponent<Rigidbody>();
 
-        healthBar.value = (float)health / (float)maxHealth;
-
-        CreateBulletPool();
-
+        animator = GetComponent<Animator>();   
     }
 
-  
-    private void LateUpdate()
+    private void Update()
     {
-       animator.SetFloat("moveFloat", moveVector.sqrMagnitude);
+        GetInput();
+        Move();
     }
 
-    private void HandleHp()
+    private void GetInput()
     {
-        healthBar.value = (float)health / (float)maxHealth;
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+
+        v = vertical * Camera.main.transform.up;
+        h = horizontal * Camera.main.transform.right;
+
+        v.y = 0;
+        h.y = 0;
+
+        movement = (h + v).normalized;
+    }
+   
+    private void Move()
+    {
+        rigid.MovePosition(transform.position + movement * moveSpeed);
     }
 
     public void Damage(float Damage)
     {
         health -= Damage;
 
-        HandleHp();
-
-        if (health <= 0)
+        if(health <= 0)
         {
             Dead();
         }
-
     }
 
-    public void CreateBulletPool()
+    private void Dead()
     {
-        for (int i = 0; i < amountToPool; i++)
-        {
-            GameObject obj = Instantiate(bulletPrefab);
-            obj.SetActive(false);
-            bulletPoolObject.Add(obj);
-        }
+        Destroy(this.gameObject);
     }
-
-    public GameObject GetBulletPoolObject()
-    {
-       for (int i = 0; i < bulletPoolObject.Count; i++)
-       {
-            if (!bulletPoolObject[i].activeInHierarchy)
-            {
-                return bulletPoolObject[i];
-            }
-       }
-
-        return null;
-    }
-
-    private void SpawnBulletMode()
-    {
-
-        GameObject objects = GetBulletPoolObject();
-
-        if (objects != null)
-        {
-            objects.transform.position = muzzleLocation.transform.position;
-            objects.transform.rotation = muzzleLocation.transform.rotation;
-            objects.SetActive(true);
-        }
-    }
-
-    ////////////////////////////////////////////////////////////////
-
-    public void HumanTypeAttack()
-    {
-        animator.SetTrigger("Attack");
-        Debug.Log("플레이어의 인간 상태일 때의 공격입니다!");
-        
-    }
-
-    public void HumanTypeAttackCollisionActive()
-    {
-        humanAttackCollision.SetActive(true);
-        AudioManager.Instance.PlaySFX("HumanTypeAttackSound1");
-        SpawnBulletMode();
-        //GameObject bullet = Instantiate(bulletPrefab, muzzleLocation.transform.position, muzzleLocation.transform.rotation);
-        //bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
-    }
-
-    public void HumanTypeAttackCollisionDeActive()
-    {
-        humanAttackCollision.SetActive(false);
-    }
-
-    public void HumanSingleFootStepSound()
-    {
-        AudioManager.Instance.PlaySFX("FootStepSound_Grass");
-    }
-
-    //////////////////////////////////////////////////////
-
-    public void Dead()
-    { 
-    
-    }
-
-
 
 }
