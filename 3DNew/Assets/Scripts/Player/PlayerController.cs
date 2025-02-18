@@ -12,18 +12,20 @@ public class PlayerController : MonoBehaviour, IDamageable
     private float maxHealth;
     private float health;
 
-    public float moveSpeed;
+    public float speed = 4.0f;
 
-    private float horizontal;
-    private float vertical;
-    private bool moveInput;
+    private Vector3 lookPosition;
 
-    Vector3 v;
-    Vector3 h;
-    Vector3 movement;
-   
+    private Transform camera;
 
-    private void Awake()
+    private Vector3 cameraForward;
+    private Vector3 move;
+    private Vector3 moveInput;
+
+    private float forwardAmount;
+    private float turnAmount;
+
+    private void Start()
     {
         maxHealth = 50.0f;
 
@@ -31,32 +33,99 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         rigid = GetComponent<Rigidbody>();
 
-        animator = GetComponent<Animator>();   
+        SetupAnimator();
+
+        camera = Camera.main.transform;
     }
 
     private void Update()
     {
-        GetInput();
-        Move();
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit, 100))
+        {
+            lookPosition = hit.point;
+        }
+
+        Vector3 lookDir = lookPosition - transform.position;
+        lookDir.y = 0;
+
+        transform.LookAt(transform.position + lookDir, Vector3.up);
+
     }
 
-    private void GetInput()
+    private void FixedUpdate()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        v = vertical * Camera.main.transform.up;
-        h = horizontal * Camera.main.transform.right;
+        if(camera != null)
+        {
+            cameraForward = Vector3.Scale(camera.up, new Vector3(1, 0, 1)).normalized;
+            move = vertical * cameraForward + horizontal * camera.right;
+        }
+        else
+        {
+            move = vertical * Vector3.forward + horizontal * Vector3.right;
+        }
 
-        v.y = 0;
-        h.y = 0;
+        if(move.magnitude > 1)
+        {
+            move.Normalize();
+        }
 
-        movement = (h + v).normalized;
+        Move(move);
+
+        Vector3 movement = new Vector3(horizontal, 0, vertical);
+        rigid.AddForce(movement * speed / Time.deltaTime);
+
+     
     }
-   
-    private void Move()
+
+    private void Move(Vector3 Move)
     {
-        rigid.MovePosition(transform.position + movement * moveSpeed);
+        if(Move.magnitude > 1)
+        {
+            Move.Normalize();
+        }
+
+        this.moveInput = Move;
+
+        ConvertMoveInput();
+        
+        UpdateAnimator();
+    
+    }
+
+    private void ConvertMoveInput()
+    {
+        Vector3 localMove = transform.InverseTransformDirection(moveInput);
+        turnAmount = localMove.x;
+
+        forwardAmount = localMove.z;
+    }
+
+    private void UpdateAnimator()
+    {
+        animator.SetFloat("Forward", forwardAmount, 0.1f, Time.deltaTime);
+        animator.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime);
+    }
+
+    private void SetupAnimator()
+    {
+        animator = GetComponent<Animator>();
+
+        foreach(var childAnimator in GetComponentsInChildren<Animator>())
+        {
+            if(childAnimator != animator)
+            {
+                animator.avatar = childAnimator.avatar;
+                Destroy(childAnimator);
+                break;
+            }
+        }
     }
 
     public void Damage(float Damage)
