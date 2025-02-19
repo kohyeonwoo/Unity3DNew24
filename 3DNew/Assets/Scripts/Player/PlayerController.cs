@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     private float forwardAmount;
     private float turnAmount;
 
+    //콤보 공격 파트
+
+    
     private void Start()
     {
         maxHealth = 50.0f;
@@ -53,6 +56,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         lookDir.y = 0;
 
         transform.LookAt(transform.position + lookDir, Vector3.up);
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
 
     }
 
@@ -106,6 +114,17 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         forwardAmount = localMove.z;
     }
+
+    //콤보 공격 부분 
+    #region ComboAttack
+
+    private void Attack()
+    {
+        animator.SetTrigger("Attack");
+    }
+    
+    #endregion
+    //
 
     private void UpdateAnimator()
     {
