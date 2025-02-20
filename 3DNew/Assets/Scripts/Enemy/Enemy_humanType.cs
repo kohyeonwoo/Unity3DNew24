@@ -61,6 +61,8 @@ public class Enemy_humanType : EnemyBase, IDamageable
     {
         currentHealth -= Damage;
 
+        AudioManager.Instance.PlaySFX("HitSound1");
+
         if(currentHealth <= 0)
         {
             Dead();

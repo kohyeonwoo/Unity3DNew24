@@ -127,6 +127,15 @@ public class PlayerController : MonoBehaviour, IDamageable
         forwardAmount = localMove.z;
     }
 
+    //플레이어 움직일 경우 소리 출력 부분 
+
+    public void PlayMoveSound()
+    {
+        AudioManager.Instance.PlaySFX("PlayerMoveSound");
+    }
+
+    //
+
     //콤보 공격 부분 
     #region ComboAttack
 
@@ -150,7 +159,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     //주먹 부분 
     public void ActiveRightFistCollision()
     {
-        rightFistCollision.SetActive(true);      
+        rightFistCollision.SetActive(true);
+        AudioManager.Instance.PlaySFX("HumanTypeAttackSound1");
     }
 
     public void DeActiveRightFistCollision()
@@ -162,6 +172,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void ActiveLeftFistCollision()
     {
         leftFistCollision.SetActive(true);
+        AudioManager.Instance.PlaySFX("HumanTypeAttackSound1");
     }
 
     public void DeActiveLeftFistCollision()
