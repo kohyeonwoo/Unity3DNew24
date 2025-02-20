@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Animator animator;
     private Rigidbody rigid;
 
+    public GameObject rightFistCollision;
+    public GameObject leftFistCollision;
+
+    public GameObject rightLegCollision;
+    public GameObject leftLegCollision;
+   
+
     private float maxHealth;
     private float health;
 
@@ -60,6 +67,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         if(Input.GetMouseButtonDown(0))
         {
             Attack();
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Attack2();
         }
 
     }
@@ -122,9 +134,64 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         animator.SetTrigger("Attack");
     }
-    
+
+    private void Attack2()
+    {
+        Debug.Log("발차기 공격 부분");
+        //animator.SetTrigger("Attack2");
+    }
+
     #endregion
     //
+
+    //공격 콜라이더 부분 
+    #region AttackCollision
+
+    //주먹 부분 
+    public void ActiveRightFistCollision()
+    {
+        rightFistCollision.SetActive(true);      
+    }
+
+    public void DeActiveRightFistCollision()
+    {
+        rightFistCollision.SetActive(false);
+
+    }
+
+    public void ActiveLeftFistCollision()
+    {
+        leftFistCollision.SetActive(true);
+    }
+
+    public void DeActiveLeftFistCollision()
+    {
+        leftFistCollision.SetActive(false);
+    }
+
+    //다리 부분 
+
+    public void ActiveRightLegCollision()
+    {
+        rightLegCollision.SetActive(true); 
+    }
+
+    public void DeActiveRightLegCollision()
+    {
+        rightLegCollision.SetActive(false);
+    }
+
+    public void ActiveLeftLegCollision()
+    {
+        leftLegCollision.SetActive(true);
+    }
+
+    public void DeActiveLeftLegCollision()
+    {
+        leftLegCollision.SetActive(false);
+    }
+
+    #endregion
 
     private void UpdateAnimator()
     {
