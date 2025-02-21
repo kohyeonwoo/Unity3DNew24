@@ -24,6 +24,7 @@ public class Enemy_humanType : EnemyBase, IDamageable
     {
 
         ragdollObject.transform.position = characterObject.transform.position;
+        ragdollObject.transform.rotation = characterObject.transform.rotation;
 
        if(bDead == true)
        {
@@ -39,8 +40,8 @@ public class Enemy_humanType : EnemyBase, IDamageable
         characterObject.SetActive(false);
         ragdollObject.SetActive(true);
 
-       // spine.AddForce(new Vector3(0, 0, 50.0f), ForceMode.Impulse);
-        //spine.AddForce(Vector3.back * 15, ForceMode.Impulse);
+        //spine.AddForce(new Vector3(0, 0, 50.0f), ForceMode.Impulse);
+        spine.AddForce(Vector3.back * 15, ForceMode.Impulse);
     }
 
     private void CopyCharacterTransformToRagdoll(Transform origin, Transform ragdoll)
