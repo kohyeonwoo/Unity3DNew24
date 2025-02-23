@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
@@ -29,23 +30,37 @@ public class EnemySpawnManager : MonoBehaviour
     public int amountToPool = 5;
     ////////////////////////////////////////////////
 
+    public int enemyCount;
+
+    public Text enemyCountText;
+
+
     private void Start()
     {
         CreateOriginPool();
+
+        enemyCount = amountToPool;
     }
 
     private void Update()
     {
- 
-        
 
-        if (countDown <= 0.0f)
+        StartCoroutine(SpawnOrigin());
+
+        //if (countDown <= 0.0f)
+        //{
+        //    StartCoroutine(SpawnOrigin());
+        //    countDown = spawnBreakTime;
+        //}
+
+        //countDown -= Time.deltaTime;
+
+        enemyCountText.text = enemyCount.ToString();
+
+        if (enemyCount <= 0)
         {
-            StartCoroutine(SpawnOrigin());
-            countDown = spawnBreakTime;
+            GameManager.Instance.Pause();
         }
-
-        countDown -= Time.deltaTime;
 
     }
 

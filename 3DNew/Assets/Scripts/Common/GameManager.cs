@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject evolutionPannel;
 
+ 
     private bool isPause;
 
     private void Start()
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
 
         isPause = false;
 
+      
     }
 
     public void Pause()
