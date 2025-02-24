@@ -6,6 +6,8 @@ public class PlayerAttackCollision : MonoBehaviour
 {
     private int attackPoint;
 
+    public GameObject particleEffect;
+
     private void Start()
     {
         attackPoint = 10;
@@ -21,6 +23,8 @@ public class PlayerAttackCollision : MonoBehaviour
             {
                 damageable.Damage(attackPoint);
                 Debug.Log("적이 맞았습니다");
+                GameObject obj = Instantiate(particleEffect, transform.position,Quaternion.identity);
+                Destroy(obj, 2.0f);
             }
         }
     }

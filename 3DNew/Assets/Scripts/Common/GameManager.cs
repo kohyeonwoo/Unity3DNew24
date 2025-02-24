@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public GameObject evolutionPannel;
+    public GameObject endGamePannel;
 
  
     private bool isPause;
@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour
         isPause = false;
 
       
+    }
+
+    public void ActiveEndGamePanel()
+    {
+        Pause();
+        endGamePannel.SetActive(true);
     }
 
     public void Pause()

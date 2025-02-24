@@ -9,12 +9,16 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Animator animator;
     private Rigidbody rigid;
 
+    public Image healthBar;
+
     public GameObject rightFistCollision;
     public GameObject leftFistCollision;
 
     public GameObject rightLegCollision;
     public GameObject leftLegCollision;
-   
+
+    public GameObject playerHitParticle;
+    public Transform  playerHitParticleLocation;
 
     private float maxHealth;
     private float health;
@@ -32,6 +36,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     private float forwardAmount;
     private float turnAmount;
 
+    private bool bMove;
+
     //콤보 공격 파트
 
     
@@ -46,6 +52,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         SetupAnimator();
 
         camera = Camera.main.transform;
+
+        bMove = true;
     }
 
     private void Update()
@@ -78,30 +86,34 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
 
-        if(camera != null)
+        if(bMove)
         {
-            cameraForward = Vector3.Scale(camera.up, new Vector3(1, 0, 1)).normalized;
-            move = vertical * cameraForward + horizontal * camera.right;
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+
+            if (camera != null)
+            {
+                cameraForward = Vector3.Scale(camera.up, new Vector3(1, 0, 1)).normalized;
+                move = vertical * cameraForward + horizontal * camera.right;
+            }
+            else
+            {
+                move = vertical * Vector3.forward + horizontal * Vector3.right;
+            }
+
+            if (move.magnitude > 1)
+            {
+                move.Normalize();
+            }
+
+            Move(move);
+
+            Vector3 movement = new Vector3(horizontal, 0, vertical);
+            rigid.AddForce(movement * speed / Time.deltaTime);
         }
-        else
-        {
-            move = vertical * Vector3.forward + horizontal * Vector3.right;
-        }
+       
 
-        if(move.magnitude > 1)
-        {
-            move.Normalize();
-        }
-
-        Move(move);
-
-        Vector3 movement = new Vector3(horizontal, 0, vertical);
-        rigid.AddForce(movement * speed / Time.deltaTime);
-
-     
     }
 
     private void Move(Vector3 Move)
@@ -161,11 +173,13 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         rightFistCollision.SetActive(true);
         AudioManager.Instance.PlaySFX("HumanTypeAttackSound1");
+        bMove = false;
     }
 
     public void DeActiveRightFistCollision()
     {
         rightFistCollision.SetActive(false);
+        bMove = true;
 
     }
 
@@ -173,33 +187,39 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         leftFistCollision.SetActive(true);
         AudioManager.Instance.PlaySFX("HumanTypeAttackSound1");
+        bMove = false;
     }
 
     public void DeActiveLeftFistCollision()
     {
         leftFistCollision.SetActive(false);
+        bMove = true;
     }
 
     //다리 부분 
 
     public void ActiveRightLegCollision()
     {
-        rightLegCollision.SetActive(true); 
+        rightLegCollision.SetActive(true);
+        bMove = false;
     }
 
     public void DeActiveRightLegCollision()
     {
         rightLegCollision.SetActive(false);
+        bMove = true;
     }
 
     public void ActiveLeftLegCollision()
     {
         leftLegCollision.SetActive(true);
+        bMove = false;
     }
 
     public void DeActiveLeftLegCollision()
     {
         leftLegCollision.SetActive(false);
+        bMove = true;
     }
 
     #endregion
@@ -228,8 +248,13 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void Damage(float Damage)
     {
         health -= Damage;
+        healthBar.fillAmount = health / 50.0f;
+        AudioManager.Instance.PlaySFX("PlayerHitSound");
 
-        if(health <= 0)
+        GameObject obj = Instantiate(playerHitParticle, playerHitParticleLocation.position, Quaternion.identity);
+        Destroy(obj, 2.0f);
+
+        if (health <= 0)
         {
             Dead();
         }

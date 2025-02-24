@@ -8,6 +8,8 @@ public class Enemy_humanType : EnemyBase, IDamageable
     public GameObject characterObject;
     public GameObject ragdollObject;
 
+    public GameObject enemyAttackCollision;
+
     public Rigidbody spine;
 
     public bool bDead;
@@ -31,6 +33,17 @@ public class Enemy_humanType : EnemyBase, IDamageable
             ChangeRagdoll();
        }
 
+    }
+
+    public void ActiveAttackCollision()
+    {
+        enemyAttackCollision.SetActive(true);
+        AudioManager.Instance.PlaySFX("EnemyAttackSound");
+    }
+
+    public void DeActiveAttackCollision()
+    {
+        enemyAttackCollision.SetActive(false);
     }
 
     public void ChangeRagdoll()
