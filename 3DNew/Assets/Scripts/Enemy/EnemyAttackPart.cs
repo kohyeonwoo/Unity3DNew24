@@ -5,12 +5,7 @@ using UnityEngine;
 public class EnemyAttackPart : MonoBehaviour
 {
   
-    private int attackPoint;
-
-    private void Start()
-    {
-        attackPoint = 5;
-    }
+    public int attackPoint;
 
     private void OnTriggerEnter(Collider other)
     {

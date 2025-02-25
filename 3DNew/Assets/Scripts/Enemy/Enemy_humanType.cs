@@ -46,6 +46,11 @@ public class Enemy_humanType : EnemyBase, IDamageable
         enemyAttackCollision.SetActive(false);
     }
 
+    public void PlayWalkSound()
+    {
+        AudioManager.Instance.PlaySFX("EnemyFootStepSound");
+    }
+
     public void ChangeRagdoll()
     {
         CopyCharacterTransformToRagdoll(characterObject.transform, ragdollObject.transform);
