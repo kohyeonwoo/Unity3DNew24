@@ -8,19 +8,25 @@ public class GameManager : MonoBehaviour
 
     public GameObject endGamePannel;
 
+    public GameObject stage1Objects;
+
+    public GameObject stage2Objects;
  
     private bool isPause;
 
-    private void Start()
+    private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
 
-        isPause = false;
+    }
 
-      
+    private void Start()
+    {
+       
+        isPause = false;
     }
 
     public void ActiveEndGamePanel()

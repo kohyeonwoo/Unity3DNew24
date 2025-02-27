@@ -6,5 +6,5 @@ using System;
 [Serializable]
 public class GameData 
 {
-    public int stageLevel;
+    public int stageLevel = 0;
 }
