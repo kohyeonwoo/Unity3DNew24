@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    public GameObject nextStagePanel;
 
     public GameObject endGamePannel;
 
@@ -29,10 +32,26 @@ public class GameManager : MonoBehaviour
         isPause = false;
     }
 
+    public void ActiveNextStagePanel()
+    {
+        Pause();
+        nextStagePanel.SetActive(true);
+    }
+
     public void ActiveEndGamePanel()
     {
         Pause();
         endGamePannel.SetActive(true);
+    }
+
+    public void ReturnMenu()
+    {
+        SceneManager.LoadScene("StartAndMenuScene");
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene("InGameScene");
     }
 
     public void Pause()

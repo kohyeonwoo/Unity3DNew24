@@ -8,8 +8,8 @@ public class GameEndObject : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            GameManager.Instance.ActiveEndGamePanel();
-            Debug.Log("게임 종료");
+            GameManager.Instance.ActiveNextStagePanel();
+            Debug.Log("스테이지 클리어");
         }
     }
 }
