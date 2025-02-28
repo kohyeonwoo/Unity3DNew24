@@ -34,12 +34,16 @@ public class EnemySpawnManager : MonoBehaviour
 
     public Text enemyCountText;
 
+    public int enemyIndex;
+
 
     private void Start()
     {
         CreateOriginPool();
 
         enemyCount = amountToPool;
+
+        enemyIndex = 0;
     }
 
     private void Update()
@@ -64,6 +68,11 @@ public class EnemySpawnManager : MonoBehaviour
 
     }
 
+    public void SetEnemyIndex(int Index)
+    {
+        enemyIndex = Index;
+    }
+
     IEnumerator SpawnOrigin()
     {
 
@@ -80,7 +89,7 @@ public class EnemySpawnManager : MonoBehaviour
     {
         for (int i = 0; i < amountToPool; i++)
         {
-            GameObject obj = Instantiate(enemyList[0]);
+            GameObject obj = Instantiate(enemyList[enemyIndex]);
             obj.SetActive(false);
             enemyPoolObject.Add(obj);
         }
