@@ -11,6 +11,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     //적 오브젝트 풀링 리스트
     private List<GameObject> enemyPoolObject = new List<GameObject>();
+    private List<GameObject> enemyPoolObject2 = new List<GameObject>();
 
     //적 몬스터 생성 위치 관련 리스트 변수
     public List<Transform> enemySpawnLocations = new List<Transform>();
@@ -89,9 +90,13 @@ public class EnemySpawnManager : MonoBehaviour
     {
         for (int i = 0; i < amountToPool; i++)
         {
-            GameObject obj = Instantiate(enemyList[enemyIndex]);
+            GameObject obj = Instantiate(enemyList[0]);
             obj.SetActive(false);
             enemyPoolObject.Add(obj);
+
+            GameObject obj2 = Instantiate(enemyList[1]);
+            obj.SetActive(false);
+            enemyPoolObject2.Add(obj2);
         }
     }
 
@@ -110,17 +115,41 @@ public class EnemySpawnManager : MonoBehaviour
 
     }
 
+    public GameObject GetOriginPoolObject2()
+    {
+
+        for (int i = 0; i < enemyPoolObject2.Count; i++)
+        {
+            if (!enemyPoolObject2[i].activeInHierarchy)
+            {
+                return enemyPoolObject2[i];
+            }
+        }
+
+        return null;
+
+    }
+
+
     private void SpawnOriginMode()
     {
 
         GameObject objects = GetOriginPoolObject();
 
-        int i = Random.Range(0, enemySpawnLocations.Count);
+        GameObject objects2 = GetOriginPoolObject2();
+
+        //int i = Random.Range(0, enemySpawnLocations.Count);
 
         if (objects != null)
         {
-            objects.transform.position = enemySpawnLocations[i].position;
+            objects.transform.position = enemySpawnLocations[0].position;
             objects.SetActive(true);
+        }
+
+        if (objects2 != null)
+        {
+            objects2.transform.position = enemySpawnLocations[1].position;
+            objects2.SetActive(true);
         }
 
     }
