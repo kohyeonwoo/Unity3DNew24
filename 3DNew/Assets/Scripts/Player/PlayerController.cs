@@ -263,6 +263,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Dead()
     {
         Destroy(this.gameObject);
+
+        GameManager.Instance.bPlayerDead = true;
     }
 
 }

@@ -14,7 +14,11 @@ public class GameManager : MonoBehaviour
     public GameObject stage1Objects;
 
     public GameObject stage2Objects;
- 
+
+    public GameObject stage3Objects;
+
+    public bool bPlayerDead;
+
     private bool isPause;
 
     private void Awake()
@@ -28,7 +32,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        bPlayerDead = false;
+
         isPause = false;
+    }
+
+    private void Update()
+    {
+        if(bPlayerDead)
+        {
+            endGamePannel.SetActive(true);
+        }
     }
 
     public void ActiveNextStagePanel()

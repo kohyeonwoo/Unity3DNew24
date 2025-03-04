@@ -35,22 +35,20 @@ public class EnemySpawnManager : MonoBehaviour
 
     public Text enemyCountText;
 
-    public int enemyIndex;
-
 
     private void Start()
     {
         CreateOriginPool();
+        CreateOriginPool2();
 
         enemyCount = amountToPool;
-
-        enemyIndex = 0;
     }
 
     private void Update()
     {
 
         StartCoroutine(SpawnOrigin());
+        StartCoroutine(SpawnOrigin2());
 
         //if (countDown <= 0.0f)
         //{
@@ -69,17 +67,24 @@ public class EnemySpawnManager : MonoBehaviour
 
     }
 
-    public void SetEnemyIndex(int Index)
-    {
-        enemyIndex = Index;
-    }
-
     IEnumerator SpawnOrigin()
     {
 
         for (int i = 0; i < waveCount; i++)
         {
             SpawnOriginMode();
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+    }
+
+    IEnumerator SpawnOrigin2()
+    {
+
+        for (int i = 0; i < 1; i++)
+        {
+            SpawnOriginMode2();
 
             yield return new WaitForSeconds(0.5f);
         }
@@ -93,10 +98,16 @@ public class EnemySpawnManager : MonoBehaviour
             GameObject obj = Instantiate(enemyList[0]);
             obj.SetActive(false);
             enemyPoolObject.Add(obj);
+        }
+    }
 
-            GameObject obj2 = Instantiate(enemyList[1]);
+    public void CreateOriginPool2()
+    {
+        for (int i = 0; i < amountToPool; i++)
+        {
+            GameObject obj = Instantiate(enemyList[1]);
             obj.SetActive(false);
-            enemyPoolObject2.Add(obj2);
+            enemyPoolObject2.Add(obj);
         }
     }
 
@@ -136,20 +147,27 @@ public class EnemySpawnManager : MonoBehaviour
 
         GameObject objects = GetOriginPoolObject();
 
-        GameObject objects2 = GetOriginPoolObject2();
-
-        //int i = Random.Range(0, enemySpawnLocations.Count);
+        int i = Random.Range(0,5);
 
         if (objects != null)
         {
-            objects.transform.position = enemySpawnLocations[0].position;
+            objects.transform.position = enemySpawnLocations[i].position;
             objects.SetActive(true);
         }
 
-        if (objects2 != null)
+    }
+
+    private void SpawnOriginMode2()
+    {
+
+        GameObject objects = GetOriginPoolObject2();
+
+        int i = Random.Range(5, 11);
+
+        if (objects != null)
         {
-            objects2.transform.position = enemySpawnLocations[1].position;
-            objects2.SetActive(true);
+            objects.transform.position = enemySpawnLocations[i].position;
+            objects.SetActive(true);
         }
 
     }
