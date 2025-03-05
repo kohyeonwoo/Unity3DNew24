@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2755642885307568109
 Transform:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6823235724586826820
 Transform:
   m_ObjectHideFlags: 0
@@ -128,15 +128,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d9c676c0c7283c04f963d14f651c0776, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 430.56555
+      value: -0.4597
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d9c676c0c7283c04f963d14f651c0776, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.8698063
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d9c676c0c7283c04f963d14f651c0776, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.560673
+      value: 9.51
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d9c676c0c7283c04f963d14f651c0776, type: 3}
       propertyPath: m_LocalRotation.w
@@ -193,6 +193,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d9c676c0c7283c04f963d14f651c0776, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3168474165079095424}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d9c676c0c7283c04f963d14f651c0776, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5658261395394188907}
   m_SourcePrefab: {fileID: 100100000, guid: d9c676c0c7283c04f963d14f651c0776, type: 3}
 --- !u!4 &926356867581164274 stripped
 Transform:
@@ -222,7 +225,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: a2d9fb0b85a46b942bc2ede8652d0a17, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -262,8 +265,8 @@ Rigidbody:
   m_GameObject: {fileID: 6495907755885630048}
   serializedVersion: 4
   m_Mass: 999
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 4
+  m_AngularDrag: 999
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -280,3 +283,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!195 &5658261395394188907
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6495907755885630048}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
