@@ -746,6 +746,8 @@ GameObject:
   - component: {fileID: 6726748162298792565}
   - component: {fileID: 1896799195739671164}
   - component: {fileID: 3222078213484539793}
+  - component: {fileID: 5686498662457364846}
+  - component: {fileID: 4764451474830510399}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -842,6 +844,46 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.45, z: 0}
+--- !u!195 &5686498662457364846
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4712418959857759338}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &4764451474830510399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4712418959857759338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368e3fafd0dcab9439ca0f195f61bd90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  agent: {fileID: 0}
+  bMove: 0
+  bAttack: 0
+  range: 10
+  centerPoint: {fileID: 0}
 --- !u!1 &4822384947020184342
 GameObject:
   m_ObjectHideFlags: 0
