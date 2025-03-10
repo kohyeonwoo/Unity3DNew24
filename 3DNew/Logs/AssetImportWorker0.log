@@ -15,7 +15,7 @@ D:/Unity3DGitNew_240/Unity3DNew24/3DNew
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50292
+50509
 Successfully changed project path to: D:/Unity3DGitNew_240/Unity3DNew24/3DNew
 D:/Unity3DGitNew_240/Unity3DNew24/3DNew
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ D:/Unity3DGitNew_240/Unity3DNew24/3DNew
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [9268] Host "[IP] 192.168.35.132 [Port] 0 [Flags] 2 [Guid] 2187316806 [EditorId] 2187316806 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CK3UCUG) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [21064] Host "[IP] 192.168.35.132 [Port] 0 [Flags] 2 [Guid] 1128000869 [EditorId] 1128000869 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CK3UCUG) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [9268] Host "[IP] 192.168.35.132 [Port] 0 [Flags] 2 [Guid] 2187316806 [EditorId] 2187316806 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CK3UCUG) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [21064] Host "[IP] 192.168.35.132 [Port] 0 [Flags] 2 [Guid] 1128000869 [EditorId] 1128000869 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CK3UCUG) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
-Refreshing native plugins compatible for Editor in 12.15 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 14.46 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.23f1 (dbb3f7c5b5c6)
 [Subsystems] Discovering subsystems at path D:/ForUnity/UnitySource/Editor/2022.3.23f1/Editor/Data/Resources/UnitySubsystems
@@ -70,46 +70,46 @@ Initialize mono
 Mono path[0] = 'D:/ForUnity/UnitySource/Editor/2022.3.23f1/Editor/Data/Managed'
 Mono path[1] = 'D:/ForUnity/UnitySource/Editor/2022.3.23f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/ForUnity/UnitySource/Editor/2022.3.23f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56824
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56060
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/ForUnity/UnitySource/Editor/2022.3.23f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: D:/ForUnity/UnitySource/Editor/2022.3.23f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.008117 seconds.
-- Loaded All Assemblies, in  0.460 seconds
+Registered in 0.009476 seconds.
+- Loaded All Assemblies, in  0.493 seconds
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 422 ms
+Android Extension - Scanning For ADB Devices 473 ms
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.865 seconds
-Domain Reload Profiling: 1325ms
-	BeginReloadAssembly (150ms)
+- Finished resetting the current domain, in  0.875 seconds
+Domain Reload Profiling: 1368ms
+	BeginReloadAssembly (163ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (47ms)
+	RebuildCommonClasses (42ms)
 	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (56ms)
-	LoadAllAssembliesAndSetupDomain (193ms)
-		LoadAssemblies (149ms)
+	initialDomainReloadingComplete (65ms)
+	LoadAllAssembliesAndSetupDomain (210ms)
+		LoadAssemblies (165ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (190ms)
-			TypeCache.Refresh (188ms)
-				TypeCache.ScanAssembly (167ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (866ms)
+		AnalyzeDomain (205ms)
+			TypeCache.Refresh (204ms)
+				TypeCache.ScanAssembly (183ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (875ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (780ms)
+		SetupLoadedEditorAssemblies (804ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (564ms)
+			InitializePlatformSupportModulesInManaged (599ms)
 			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (144ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (134ms)
 			ProcessInitializeOnLoadMethodAttributes (65ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
@@ -118,8 +118,8 @@ Domain Reload Profiling: 1325ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.837 seconds
-Refreshing native plugins compatible for Editor in 5.06 ms, found 3 plugins.
+- Loaded All Assemblies, in  0.838 seconds
+Refreshing native plugins compatible for Editor in 3.87 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Package Manager log level set to [2]
@@ -127,47 +127,47 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.885 seconds
-Domain Reload Profiling: 1722ms
-	BeginReloadAssembly (218ms)
+- Finished resetting the current domain, in  0.828 seconds
+Domain Reload Profiling: 1665ms
+	BeginReloadAssembly (224ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (29ms)
+		CreateAndSetChildDomain (25ms)
 	RebuildCommonClasses (48ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (47ms)
-	LoadAllAssembliesAndSetupDomain (509ms)
-		LoadAssemblies (386ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (510ms)
+		LoadAssemblies (401ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (260ms)
-			TypeCache.Refresh (229ms)
-				TypeCache.ScanAssembly (208ms)
-			ScanForSourceGeneratedMonoScriptInfo (21ms)
-			ResolveRequiredComponents (9ms)
-	FinalizeReload (885ms)
+		AnalyzeDomain (257ms)
+			TypeCache.Refresh (227ms)
+				TypeCache.ScanAssembly (203ms)
+			ScanForSourceGeneratedMonoScriptInfo (22ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (829ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (660ms)
+		SetupLoadedEditorAssemblies (623ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (37ms)
+			InitializePlatformSupportModulesInManaged (31ms)
 			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (97ms)
-			ProcessInitializeOnLoadAttributes (429ms)
-			ProcessInitializeOnLoadMethodAttributes (85ms)
+			BeforeProcessingInitializeOnLoad (79ms)
+			ProcessInitializeOnLoadAttributes (420ms)
+			ProcessInitializeOnLoadMethodAttributes (83ms)
 			AfterProcessingInitializeOnLoad (4ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (18ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 4.15 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 4.17 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3706 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 44 unused Assets / (346.2 KB). Loaded Objects now: 4202.
-Memory consumption went from 162.2 MB to 161.8 MB.
-Total: 4.208900 ms (FindLiveObjects: 0.432000 ms CreateObjectMapping: 0.415100 ms MarkObjects: 3.196400 ms  DeleteObjects: 0.164200 ms)
+Unloading 44 unused Assets / (346.5 KB). Loaded Objects now: 4202.
+Memory consumption went from 162.1 MB to 161.8 MB.
+Total: 3.470600 ms (FindLiveObjects: 0.348100 ms CreateObjectMapping: 0.309600 ms MarkObjects: 2.643900 ms  DeleteObjects: 0.168300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -184,65 +184,219 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 766.675449 seconds.
-  path: Assets/Scenes/InGameScene.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/InGameScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ecb9fc948eb15456e6c812d839fb9c6') in 0.002926 seconds
+  Time since last request: 1851.937527 seconds.
+  path: Assets/InGameAssetCollection/Boss2
+  artifactKey: Guid(4290a25ef93d13243a30511d471cf385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2 using Guid(4290a25ef93d13243a30511d471cf385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd676b17bc14f67de5f1ab9af96e3bfb7') in 0.003936 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 27.111940 seconds.
-  path: Assets/InGameAssetCollection/LowPolyCharacters/AntlerKnight
-  artifactKey: Guid(24091e147f588e841a8aeee8b34f38e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssetCollection/LowPolyCharacters/AntlerKnight using Guid(24091e147f588e841a8aeee8b34f38e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '052e7a462f2c01663c51df28eba4b69f') in 0.000617 seconds
+  Time since last request: 8.982583 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Boss2_Guard.fbx
+  artifactKey: Guid(7386d1ecb6c220143b8f6ac7f170138c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Boss2_Guard.fbx using Guid(7386d1ecb6c220143b8f6ac7f170138c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4026ce1568698c08a1021e99101c6b05') in 0.284085 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 145
+========================================================================
+Received Import Request.
+  Time since last request: 35.545802 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Texture
+  artifactKey: Guid(0fe90a3ffe0d18a4d8aff00cf1aa12f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Texture using Guid(0fe90a3ffe0d18a4d8aff00cf1aa12f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67804e8fd3b7fb3fabd9b7fe3691c2de') in 0.001198 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 1.349130 seconds.
-  path: Assets/InGameAssetCollection/LowPolyCharacters/AntlerKnight/Prefab
-  artifactKey: Guid(4b0f00afd3018d243bdc34bae0e1e391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssetCollection/LowPolyCharacters/AntlerKnight/Prefab using Guid(4b0f00afd3018d243bdc34bae0e1e391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '337d8300e1614b033952124b6f400e7f') in 0.000530 seconds
+  Time since last request: 5.393365 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Material
+  artifactKey: Guid(aee254d0fe4e62045a210096138b14dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Material using Guid(aee254d0fe4e62045a210096138b14dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f020b43a8284fb9676efc9eee12036d') in 0.000612 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.055018 seconds.
-  path: Assets/InGameAssetCollection/LowPolyCharacters/AntlerKnight/Prefab/AntlerKnight.prefab
-  artifactKey: Guid(511685fac9d2e90478d079b1348ff347) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssetCollection/LowPolyCharacters/AntlerKnight/Prefab/AntlerKnight.prefab using Guid(511685fac9d2e90478d079b1348ff347) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20a338f3b04f3d4dc827b035eade3e76') in 0.747831 seconds
+  Time since last request: 11.106712 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Boss2_Guard.fbx
+  artifactKey: Guid(7386d1ecb6c220143b8f6ac7f170138c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Boss2_Guard.fbx using Guid(7386d1ecb6c220143b8f6ac7f170138c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0903cd59355e2e44f57ca2e28ba81457') in 0.054492 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 108
+Number of asset objects unloaded after import = 147
 ========================================================================
 Received Import Request.
-  Time since last request: 5.148468 seconds.
-  path: Assets/InGameAssetCollection/LowPolyCharacters/AntlerKnight/Materials/antlerKnight_diffuse.mat
-  artifactKey: Guid(121676a1b4ae64e4b883906899f5a448) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssetCollection/LowPolyCharacters/AntlerKnight/Materials/antlerKnight_diffuse.mat using Guid(121676a1b4ae64e4b883906899f5a448) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cc2ea80f68e62ce0ff2806962d76240') in 0.092932 seconds
+  Time since last request: 1.341562 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Boss2_Guard.fbx
+  artifactKey: Guid(7386d1ecb6c220143b8f6ac7f170138c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Boss2_Guard.fbx using Guid(7386d1ecb6c220143b8f6ac7f170138c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '873ab9aef5f0a81bf17630bbbe4a59c1') in 0.052884 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 147
+========================================================================
+Received Import Request.
+  Time since last request: 4.407275 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Boss2_Guard.fbx
+  artifactKey: Guid(7386d1ecb6c220143b8f6ac7f170138c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Boss2_Guard.fbx using Guid(7386d1ecb6c220143b8f6ac7f170138c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9dd9505256567c2a32d40c5f25e4f91') in 0.039684 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 147
+========================================================================
+Received Import Request.
+  Time since last request: 22.944551 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Boss2_Guard_Attack1.fbx
+  artifactKey: Guid(bcef6a81931785c4f811dfeb1c434f57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Boss2_Guard_Attack1.fbx using Guid(bcef6a81931785c4f811dfeb1c434f57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd17baf7d6855483649fb6fec54c9db5a') in 0.006167 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 135
+========================================================================
+Received Import Request.
+  Time since last request: 18.042107 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Boss2_Guard_Attack2.fbx
+  artifactKey: Guid(80ad72714340755459c744f8a8c8df30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Boss2_Guard_Attack2.fbx using Guid(80ad72714340755459c744f8a8c8df30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd76027a72ac57db5d4aa4211483119e4') in 0.004490 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 135
+========================================================================
+Received Import Request.
+  Time since last request: 12.202213 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Boss2_Guard_Idle.fbx
+  artifactKey: Guid(5fecefe878293b9478f76bf6af56a403) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Boss2_Guard_Idle.fbx using Guid(5fecefe878293b9478f76bf6af56a403) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71805d752de14f7e78261f4d30cc0026') in 0.005133 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 135
+========================================================================
+Received Import Request.
+  Time since last request: 7.919696 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Boss2_Guard_Roar.fbx
+  artifactKey: Guid(97c0ec9f813263e41be887ba99e25b52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Boss2_Guard_Roar.fbx using Guid(97c0ec9f813263e41be887ba99e25b52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6555b565241ffb972ffa5a7c61b1fd42') in 0.004574 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 135
+========================================================================
+Received Import Request.
+  Time since last request: 6.175245 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Boss2_Guard_Run.fbx
+  artifactKey: Guid(5da7a7a825dd75243b1be2392d90a784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Boss2_Guard_Run.fbx using Guid(5da7a7a825dd75243b1be2392d90a784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51370270db0412531b155fcca23ffb01') in 0.004789 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 135
+========================================================================
+Received Import Request.
+  Time since last request: 8.693620 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Boss2_Guard_Walk.fbx
+  artifactKey: Guid(834853431df5f2d4889bfae7c7f863f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Boss2_Guard_Walk.fbx using Guid(834853431df5f2d4889bfae7c7f863f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e55d96a48132c544b541bb073b5c6b42') in 0.004636 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 135
+========================================================================
+Received Import Request.
+  Time since last request: 11.057708 seconds.
+  path: Assets/InGameAssetCollection/Boss2/Animation
+  artifactKey: Guid(b36ec2cbb363e424281a9c85f442eb95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/Animation using Guid(b36ec2cbb363e424281a9c85f442eb95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ad4236df9511ede13c4f41b657a7277') in 0.001174 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 8.621282 seconds.
+  path: Assets/InGameAssetCollection/Boss2/AnimController
+  artifactKey: Guid(caeac8a22338ef2498628903047427be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/AnimController using Guid(caeac8a22338ef2498628903047427be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e458d0e6cd337601c035873847ed512') in 0.000548 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 11.912191 seconds.
+  path: Assets/InGameAssetCollection/Boss2/AnimController/Boss2AnimController.controller
+  artifactKey: Guid(ca4d5ffffbe29df458b60ef7d9b68efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/AnimController/Boss2AnimController.controller using Guid(ca4d5ffffbe29df458b60ef7d9b68efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1da237f1852a8d097cb943a060b86ed') in 0.002471 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.210525 seconds.
+  path: Assets/InGameAssetCollection/Boss2/AnimController/Boss2AnimController.controller
+  artifactKey: Guid(ca4d5ffffbe29df458b60ef7d9b68efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/AnimController/Boss2AnimController.controller using Guid(ca4d5ffffbe29df458b60ef7d9b68efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '740545360f6290a61d4c4f9f6b014fd7') in 0.001305 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 ========================================================================
-Received Import Request.
-  Time since last request: 0.374065 seconds.
-  path: Assets/InGameAssetCollection/LowPolyCharacters/AntlerKnight/Model/AntlerKnight.FBX
-  artifactKey: Guid(9fb3f697c73e7a5418a6ddc31732063f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssetCollection/LowPolyCharacters/AntlerKnight/Model/AntlerKnight.FBX using Guid(9fb3f697c73e7a5418a6ddc31732063f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d452d39fc6f6dce3405b7f5c5e50f2d') in 0.095334 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 47
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.530 seconds
+Refreshing native plugins compatible for Editor in 4.40 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.272 seconds
+Domain Reload Profiling: 1801ms
+	BeginReloadAssembly (207ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (43ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (26ms)
+	LoadAllAssembliesAndSetupDomain (249ms)
+		LoadAssemblies (360ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (18ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1272ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (535ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (27ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (66ms)
+			ProcessInitializeOnLoadAttributes (343ms)
+			ProcessInitializeOnLoadMethodAttributes (89ms)
+			AfterProcessingInitializeOnLoad (4ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (17ms)
+Refreshing native plugins compatible for Editor in 4.86 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3674 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 32 unused Assets / (317.3 KB). Loaded Objects now: 4249.
+Memory consumption went from 158.4 MB to 158.1 MB.
+Total: 3.105900 ms (FindLiveObjects: 0.325800 ms CreateObjectMapping: 0.254300 ms MarkObjects: 2.423300 ms  DeleteObjects: 0.101800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 165.634673 seconds.
-  path: Assets/Prefab/Boss2/Boss2.prefab
-  artifactKey: Guid(6055fd6d63afeae4cb3a2fa3bb42d769) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Boss2/Boss2.prefab using Guid(6055fd6d63afeae4cb3a2fa3bb42d769) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be11dadbdce148e785b1283381f77821') in 0.035285 seconds
+  Time since last request: 2950.429231 seconds.
+  path: Assets/Prefab/Boss2/Boss2_Guard.prefab
+  artifactKey: Guid(fa65d76544ad21c489287bf4a1068051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Boss2/Boss2_Guard.prefab using Guid(fa65d76544ad21c489287bf4a1068051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1570f151468ac6f2b024892e07cc2f1c') in 0.150738 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 110
+Number of asset objects unloaded after import = 296
 ========================================================================
 Received Import Request.
-  Time since last request: 4.196358 seconds.
-  path: Assets/Prefab/Boss2/Boss2.prefab
-  artifactKey: Guid(6055fd6d63afeae4cb3a2fa3bb42d769) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Boss2/Boss2.prefab using Guid(6055fd6d63afeae4cb3a2fa3bb42d769) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fc657426ee051fb71e4337e0cdfd8b8') in 0.045712 seconds
+  Time since last request: 53.043841 seconds.
+  path: Assets/InGameAssetCollection/Boss2/AnimController/Boss2AnimController.controller
+  artifactKey: Guid(ca4d5ffffbe29df458b60ef7d9b68efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssetCollection/Boss2/AnimController/Boss2AnimController.controller using Guid(ca4d5ffffbe29df458b60ef7d9b68efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a133e334dee33b8b8c40e7631e393566') in 0.002465 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 110
+Number of asset objects unloaded after import = 4
